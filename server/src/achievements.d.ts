@@ -1,0 +1,21 @@
+declare const achievements: {
+    FIRST_TO_HIRE_3_PEOPLE_IN_1_TURN: boolean;
+    FIRST_TO_TRAIN_SOMEONE: boolean;
+    FIRST_BILLBOARD_PLACED: boolean;
+    FIRST_TO_THROW_AWAY_DRINK: boolean;
+    FIRST_WAITRESS_PLAYER: boolean;
+    FIREST_TO_HAVE_$20: boolean;
+    FIRST_TO_HAVE_$100: boolean;
+    FIRST_TO_LOWER_PRICES: boolean;
+    FIRST_BURGER_PRODUCED: boolean;
+    FIRST_PIZZA_PRODUCED: boolean;
+    FIRST_ERRAND_BOY_PLAYED: boolean;
+    FIRST_CART_OPERATOR_PLAYED: boolean;
+    FIRST_TO_PAY_$20_OR_MORE_IN_SALARIES: boolean;
+    FIRST_BURGER_MARKETED: boolean;
+    FIRST_PIZZA_MARKETED: boolean;
+    FIRST_DRINK_MARKETED: boolean;
+    FIRST_AIRPLANE_CAMPAIGN: boolean;
+    FIRST_RADIO_CAMPAIGN: boolean;
+};
+export default achievements;

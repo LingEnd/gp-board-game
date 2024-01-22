@@ -1,0 +1,40 @@
+export type workerList = "" | "Regional_Manager" | "Luxuries_Manager" | "Zeppelin_Pilot" | "CFO" | "Brand_Director" | "Burger_Chef" | "Pizza_Chef" | "Executive_Vice_President" | "Guru" | "HR_Director" | "Local_Manager" | "Discount_Manager" | "Cart_Operator" | "Truck_Driver" | "New_Business_Developer" | "Campaign_Manager" | "Brand_Manager" | "Burger_Cook" | "Pizza_Cook" | "Vice_President" | "Senior_Vice_President" | "Coach" | "Recruiting_Manager" | "Pricing_Manager" | "Errand_Boy" | "Waitress" | "Marketing_Trainee" | "Kitchen_Trainee" | "Junior_Vice_President" | "Trainer" | "Recruiting_Girl" | "Management_Trainee" | "CEO";
+declare const company: {
+    boss: string;
+    basicHire: number;
+    extraHire: number;
+    started: boolean;
+    product: {
+        burger: number;
+        pizza: number;
+        soda: number;
+        beer: number;
+        lemonade: number;
+    };
+    beach: workerList[];
+    working: workerList[];
+    tranning: workerList[];
+    achieve: {
+        FIRST_TO_HIRE_3_PEOPLE_IN_1_TURN: boolean;
+        FIRST_TO_TRAIN_SOMEONE: boolean;
+        FIRST_BILLBOARD_PLACED: boolean;
+        FIRST_TO_THROW_AWAY_DRINK: boolean;
+        FIRST_WAITRESS_PLAYER: boolean;
+        FIREST_TO_HAVE_$20: boolean;
+        FIRST_TO_HAVE_$100: boolean;
+        FIRST_TO_LOWER_PRICES: boolean;
+        FIRST_BURGER_PRODUCED: boolean;
+        FIRST_PIZZA_PRODUCED: boolean;
+        FIRST_ERRAND_BOY_PLAYED: boolean;
+        FIRST_CART_OPERATOR_PLAYED: boolean;
+        FIRST_TO_PAY_$20_OR_MORE_IN_SALARIES: boolean;
+        FIRST_BURGER_MARKETED: boolean;
+        FIRST_PIZZA_MARKETED: boolean;
+        FIRST_DRINK_MARKETED: boolean;
+        FIRST_AIRPLANE_CAMPAIGN: boolean;
+        FIRST_RADIO_CAMPAIGN: boolean;
+    };
+    price: number;
+    total: number;
+};
+export default company;
