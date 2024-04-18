@@ -7,7 +7,6 @@ import {
   CardContent,
   CardMedia,
   Chip,
-  CircularProgress,
   Container,
   Dialog,
   DialogActions,
@@ -15,7 +14,6 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
-  OutlinedInput,
   Skeleton,
   Snackbar,
   Stack,
@@ -23,15 +21,14 @@ import {
   Typography,
 } from "@mui/material";
 import { User } from "@prisma/client";
+import { t } from "i18next";
 import { useState } from "react";
 import { usePageContext } from "vike-react/usePageContext";
-import { prisma } from "../../database/prisma";
-import { onChangeUserName } from "./ChangeUserName.telefunc";
 import { reload } from "vike/client/router";
-import ChangeUserName from "./ChangeUserName";
-import ChangeEmail from "./ChangeEmail";
 import Rank, { nextRank } from "../../components/Rank";
 import RankProgress, { rankColor } from "../../components/RankProgress";
+import ChangeEmail from "./ChangeEmail";
+import ChangeUserName from "./ChangeUserName";
 
 export default Page;
 
@@ -73,19 +70,16 @@ function Page() {
           <Dialog open={dialogOpen} onClose={handleDialogClose}>
             <DialogTitle bgcolor="primary.main">
               <Typography variant="h6" fontWeight="bold">
-                Set Up / Change Avatar
+                {t("change-avatar-title")}
               </Typography>
             </DialogTitle>
             <DialogContent sx={{ bgcolor: "background.default" }}>
               <DialogContentText>
-                <Typography mt={2}>
-                  Use Gravatar to set up your avatar and refresh the page after
-                  setting up
-                </Typography>
+                <Typography mt={2}>{t("change-avatar-desc")}</Typography>
               </DialogContentText>
             </DialogContent>
             <DialogActions sx={{ bgcolor: "background.default" }}>
-              <Button onClick={handleDialogClose}>Cancel</Button>
+              <Button onClick={handleDialogClose}>{t("cancel")}</Button>
               {
                 // open the site in a new tab
               }
@@ -95,7 +89,7 @@ function Page() {
                   window.open("https://en.gravatar.com/", "_blank");
                 }}
               >
-                Go to Gravatar
+                {t("change-avatar-btn")}
               </Button>
             </DialogActions>
           </Dialog>
@@ -186,7 +180,7 @@ function Page() {
                 variant="h5"
                 color="primary.main"
               >
-                Email
+                {t("email")}
               </Typography>
               {
                 // only show the tooltip when os is mobile
@@ -220,9 +214,13 @@ function Page() {
               </Tooltip>
               {user.email ? (
                 user.emailVerified ? (
-                  <Chip label="Verified" icon={<Done />} color="success" />
+                  <Chip label={t("verified")} icon={<Done />} color="success" />
                 ) : (
-                  <Chip label="Unverified" icon={<Close />} color="error" />
+                  <Chip
+                    label={t("unverified")}
+                    icon={<Close />}
+                    color="error"
+                  />
                 )
               ) : (
                 <IconButton size="large">
@@ -239,7 +237,7 @@ function Page() {
                 variant="h5"
                 color="primary.main"
               >
-                Played
+                {t("played")}
               </Typography>
               <Typography
                 sx={{
@@ -256,7 +254,7 @@ function Page() {
                 variant="h5"
                 color="primary.main"
               >
-                Wins
+                {t("wins")}
               </Typography>
               <Typography
                 sx={{
@@ -273,7 +271,7 @@ function Page() {
                 variant="h5"
                 color="primary.main"
               >
-                Rate
+                {t("win-rate")}
               </Typography>
               <Typography
                 sx={{
@@ -299,7 +297,7 @@ function Page() {
                 variant="h5"
                 color="primary.main"
               >
-                Rank
+                {t("rankking")}
               </Typography>
               <Rank rank={user.rank} />
               <Typography
@@ -323,7 +321,7 @@ function Page() {
                   variant="h5"
                   color="primary.main"
                 >
-                  Credits
+                  {t("credits")}
                 </Typography>
                 <Typography
                   sx={{
@@ -331,8 +329,9 @@ function Page() {
                   }}
                   variant="h6"
                 >
-                  {user.credits % 100}/100 to next rank
-                  <Rank rank={nextRank(user.rank)} />, {user.credits} in total
+                  {user.credits % 100}/100 {t("to-next-rank")}
+                  <Rank rank={nextRank(user.rank)} />, {user.credits}{" "}
+                  {t("in-total")}
                 </Typography>
                 <RankProgress
                   credit={user.credits}

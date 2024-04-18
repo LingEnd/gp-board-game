@@ -1,4 +1,5 @@
 import { Box, SvgIcon, Typography, Link } from "@mui/material";
+import { t } from "i18next";
 
 export default Page;
 
@@ -436,7 +437,7 @@ function Page() {
           flex: 1,
         }}
       >
-        Check your email
+        {t("check-your-email")}
       </Typography>
       <Typography
         variant="h4"
@@ -444,7 +445,7 @@ function Page() {
           flex: 1,
         }}
       >
-        A sign in link has been sent to your email address.
+        {t("check-your-email-desc")}
       </Typography>
       <Typography
         variant="h5"
@@ -454,7 +455,7 @@ function Page() {
       >
         {" "}
         <Link href="/" underline="hover">
-          Back to Home
+          {t("go-to-home")}
         </Link>
       </Typography>
     </Box>

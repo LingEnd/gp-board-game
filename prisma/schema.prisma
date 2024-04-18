@@ -74,3 +74,18 @@ model Announcement {
   updatedAt DateTime @updatedAt
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
+model Game {
+  id           String   @id @default(cuid())
+  name         String
+  players      Json
+  setupData    Json
+  gameover     Json
+  nextRoomID   String?
+  unlisted     Boolean?
+  state        Json?
+  initialState Json?
+  log          Json?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

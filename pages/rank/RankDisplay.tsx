@@ -4,6 +4,8 @@ import { onQueryRank } from "./RankDisplay.telefunc";
 import { Avatar, Box, Typography } from "@mui/material";
 import Rank from "../../components/Rank";
 import { rankColor } from "../../components/RankProgress";
+import { zhCN } from "@mui/x-data-grid";
+import { t } from "i18next";
 
 export default function RankDisplay() {
   const [users, setUsers] = React.useState<
@@ -22,10 +24,10 @@ export default function RankDisplay() {
   }, []);
 
   const columns = [
-    { field: "id", headerName: "Rank", width: 100 },
+    { field: "id", headerName: t("rankking"), width: 100 },
     {
       field: "image",
-      headerName: "Image",
+      headerName: t("avatar"),
       width: 110,
       renderCell: (params: GridRenderCellParams<any>) => (
         <Avatar
@@ -38,11 +40,11 @@ export default function RankDisplay() {
         />
       ),
     },
-    { field: "name", headerName: "Name", width: 150 },
+    { field: "name", headerName: t("name"), width: 150 },
 
     {
       field: "level",
-      headerName: "Level",
+      headerName: t("level"),
       width: 150,
       renderCell: (params: GridRenderCellParams<any>) => (
         <>
@@ -58,20 +60,28 @@ export default function RankDisplay() {
         </>
       ),
     },
-    { field: "score", headerName: "Score", width: 150 },
+    { field: "score", headerName: t("score"), width: 150 },
   ];
   const rows = users?.map((user, index) => {
     return {
       id: index,
-      name: user.name ? user.name : "Anonymous",
+      name: user.name ? user.name : t("anonymous"),
       image: user.image,
       level: user.rank,
       score: user.credits,
     };
   });
 
+  // get the language from the browser
+  const language = navigator.language.split("-")[0];
+
+  const localeText =
+    language === "zh"
+      ? zhCN.components.MuiDataGrid.defaultProps.localeText
+      : {};
   return (
     <DataGrid
+      localeText={localeText}
       autoHeight
       sx={{
         width: "min-content",

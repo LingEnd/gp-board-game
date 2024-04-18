@@ -3,15 +3,19 @@ import { useTheme } from "@mui/material/styles";
 import React from "react";
 import { ColorModeContext } from "../themes/useCorlorModeContext";
 import AppBarButton from "./AppBarButton";
+import { useTranslation } from "react-i18next";
 
 const ThemeSwitcher = () => {
+  const { t } = useTranslation();
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
 
   return (
     <AppBarButton
       title={
-        "Toggle " + (theme.palette.mode === "dark" ? "light" : "dark") + " mode"
+        theme.palette.mode === "dark"
+          ? t("lightMode-button")
+          : t("darkMode-button")
       }
       onClick={colorMode.toggleColorMode}
     >

@@ -3,11 +3,12 @@ import { usePageContext } from "vike-react/usePageContext";
 import { LayoutContext } from "../../layouts/LayoutContext";
 import { useContext } from "react";
 import { reload } from "vike/client/router";
+import { useTranslation } from "react-i18next";
 
 export default function Page({ is404 }: { is404: boolean }) {
   const { abortReason, abortStatusCode } = usePageContext();
   const { handleLoginOpen } = useContext(LayoutContext);
-
+  const { t } = useTranslation();
   if (is404) {
     return (
       <Box
@@ -21,12 +22,11 @@ export default function Page({ is404 }: { is404: boolean }) {
         }}
       >
         <Typography variant="h3" sx={{ m: 3 }}>
-          Sorry, page not found!
+          {t("page-not-found")}
         </Typography>
 
         <Typography sx={{ color: "text.secondary" }}>
-          Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve
-          mistyped the URL? Be sure to check your spelling.
+          {t("page-not-found-desc")}
         </Typography>
 
         <Box
@@ -39,7 +39,7 @@ export default function Page({ is404 }: { is404: boolean }) {
         />
 
         <Button href="/" size="large" variant="contained">
-          Go to Home
+          {t("go-to-home")}
         </Button>
       </Box>
     );
@@ -66,11 +66,13 @@ export default function Page({ is404 }: { is404: boolean }) {
           {abortStatusCode}
         </Typography>
         <Typography variant="h5" sx={{ m: 3 }}>
-          Sorry!
+          {t("error-occured")}
         </Typography>
 
         <Typography variant="h6" sx={{ color: "text.secondary" }}>
-          {abortReason as string}
+          {abortStatusCode === 401
+            ? t("unauthorized-desc")
+            : t("unknown-error") + ":\n" + (abortReason as string)}
         </Typography>
 
         <Box
@@ -98,15 +100,15 @@ export default function Page({ is404 }: { is404: boolean }) {
               size="large"
               variant="contained"
             >
-              Refresh
+              {t("refresh-page")}
             </Button>
             <Button onClick={handleLoginOpen} size="large" variant="contained">
-              Sign in
+              {t("login")}
             </Button>
           </Box>
         ) : (
           <Button href="/" size="large" variant="contained">
-            Go to Home
+            {t("go-to-home")}
           </Button>
         )}
       </Box>

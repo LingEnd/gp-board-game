@@ -11,6 +11,7 @@ import { User } from "@prisma/client";
 import { useState } from "react";
 import { reload } from "vike/client/router";
 import { onChangeEmail } from "./ChangeEmail.telefunc";
+import { t } from "i18next";
 
 type Props = {
   user: User;
@@ -87,7 +88,7 @@ function ChangeEmail({ user }: Props) {
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
         <Alert severity="success" sx={{ width: "100%" }}>
-          Email changed successfully!
+          {t("email-changed-successfully")}
         </Alert>
       </Snackbar>
       <Snackbar

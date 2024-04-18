@@ -14,6 +14,7 @@ import {
   NoAccounts,
   Notifications,
   SportsEsports,
+  Translate,
 } from "@mui/icons-material";
 import {
   Avatar,
@@ -34,6 +35,7 @@ import {
   ListItemIcon,
   ListItemText,
   Menu,
+  MenuItem,
   AppBar as MuiAppBar,
   AppBarProps as MuiAppBarProps,
   Drawer as MuiDrawer,
@@ -44,10 +46,12 @@ import {
 } from "@mui/material";
 import { CSSObject, Theme, styled, useTheme } from "@mui/material/styles";
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { usePageContext } from "vike-react/usePageContext";
 import { Link } from "../components/Link";
 import { DialogLogin } from "../components/Login/DialogLogin";
 import Logo from "../components/Logo";
+import "../i18n/i18n";
 import AppBarButton from "./AppBar/AppBarButton";
 import ThemeSwitcher from "./AppBar/ThemeSwitcher";
 import ColorModeContextProvider from "./themes/useCorlorModeContext";
@@ -56,6 +60,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
+import { reload } from "vike/client/router";
 import { LayoutContext } from "./LayoutContext";
 import UserPannel from "./UserPannel";
 
@@ -149,6 +154,8 @@ export default function LayoutDefault({
   const [csrfToken, setCsrfToken] = React.useState("");
   const theme = useTheme();
 
+  const { t, i18n } = useTranslation();
+
   useEffect(() => {
     setLoading(false);
     const data = fetch("/api/auth/csrf", {
@@ -198,6 +205,23 @@ export default function LayoutDefault({
     setAnchorElUser(null);
   };
 
+  const [anchorElLanguage, setAnchorElLanguage] =
+    React.useState<null | HTMLElement>(null);
+
+  const handleOpenLanguageMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElLanguage(event.currentTarget);
+  };
+
+  const handleCloseLanguageMenu = () => {
+    setAnchorElLanguage(null);
+  };
+
+  const handleLanguageChange = (lng: string) => {
+    i18n.changeLanguage(lng);
+    reload();
+    handleCloseLanguageMenu();
+  };
+
   return (
     <React.StrictMode>
       <ColorModeContextProvider>
@@ -245,7 +269,7 @@ export default function LayoutDefault({
                       textDecoration: "none",
                     }}
                   >
-                    PeachBoardGame
+                    {t("main-title")}
                   </Typography>
                   <Typography
                     variant="h5"
@@ -263,25 +287,82 @@ export default function LayoutDefault({
                       textDecoration: "none",
                     }}
                   >
-                    PBG
+                    {t("short-title")}
                   </Typography>
                   <Box
                     sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
                   />
                   <Box sx={{ flexGrow: 0 }}>
                     <Link href="https://github.com/LingEnd/board-game">
-                      <AppBarButton title="Github repository">
+                      <AppBarButton title={t("github-button")}>
                         <GitHub fontSize="small" />
                       </AppBarButton>
                     </Link>
-                    <AppBarButton title="Toggle notifications panel">
+                    <AppBarButton title={t("notification-button")}>
                       {
                         // TODO make notifications panel
                       }
                       <Notifications fontSize="small" />
                     </AppBarButton>
                     <ThemeSwitcher />
-                    <Tooltip title={user ? user.name : "No accounts"}>
+                    <AppBarButton title={t("language-button")}>
+                      <IconButton
+                        onClick={handleOpenLanguageMenu}
+                        sx={{ p: 0 }}
+                      >
+                        <Translate fontSize="small" />
+                      </IconButton>
+                    </AppBarButton>
+                    <Menu
+                      sx={{ mt: "25px" }}
+                      anchorEl={anchorElLanguage}
+                      open={Boolean(anchorElLanguage)}
+                      onClose={handleCloseLanguageMenu}
+                    >
+                      <MenuItem onClick={() => handleLanguageChange("en")}>
+                        <Typography sx={{ fontWeight: "bold" }}>
+                          <Box
+                            component="img"
+                            src="/assets/english.svg"
+                            sx={{
+                              width: 40,
+                              mr: 1,
+                              verticalAlign: "middle",
+                            }}
+                          />
+                          English
+                        </Typography>
+                      </MenuItem>
+                      <MenuItem onClick={() => handleLanguageChange("zh")}>
+                        <Typography sx={{ fontWeight: "bold" }}>
+                          <Box
+                            component="img"
+                            src="/assets/china.svg"
+                            sx={{
+                              width: 40,
+                              mr: 1,
+                              verticalAlign: "middle",
+                            }}
+                          />
+                          中文
+                        </Typography>
+                      </MenuItem>
+                      <MenuItem onClick={() => handleLanguageChange("jp")}>
+                        <Typography sx={{ fontWeight: "bold" }}>
+                          <Box
+                            component="img"
+                            src="/assets/japan.svg"
+                            sx={{
+                              width: 40,
+                              mr: 1,
+                              verticalAlign: "middle",
+                            }}
+                          />
+                          日本語
+                        </Typography>
+                      </MenuItem>
+                    </Menu>
+                    <Tooltip title={user ? user.name : t("no-account")}>
                       <IconButton
                         onClick={user ? handleOpenUserMenu : handleLoginOpen}
                         sx={{ p: 0 }}
@@ -388,44 +469,146 @@ export default function LayoutDefault({
                 </DrawerHeader>
                 <Divider />
                 <List>
-                  {["Home", "Games", "Lobby", "Rank"].map((text) => (
-                    <ListItem
-                      key={text}
-                      disablePadding
-                      sx={{ display: "block" }}
+                  <ListItem
+                    key={"Home"}
+                    disablePadding
+                    sx={{
+                      display: "block",
+                    }}
+                  >
+                    <ListItemButton
+                      href={"/home"}
+                      sx={{
+                        minHeight: 48,
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
+                      }}
                     >
-                      <ListItemButton
-                        href={"/" + text.toLocaleLowerCase()}
+                      <ListItemIcon
                         sx={{
-                          minHeight: 48,
-                          justifyContent: open ? "initial" : "center",
-                          px: 2.5,
+                          minWidth: 0,
+                          mr: open ? 3 : "auto",
+                          justifyContent: "center",
                         }}
                       >
-                        <ListItemIcon
-                          sx={{
-                            minWidth: 0,
-                            mr: open ? 3 : "auto",
-                            justifyContent: "center",
-                          }}
-                        >
-                          {text === "Home" ? (
-                            <Home />
-                          ) : text === "Games" ? (
-                            <SportsEsports />
-                          ) : text === "Lobby" ? (
-                            <Deck />
-                          ) : (
-                            <MilitaryTech></MilitaryTech>
-                          )}
-                        </ListItemIcon>
-                        <ListItemText
-                          primary={text}
-                          sx={{ opacity: open ? 1 : 0 }}
-                        />
-                      </ListItemButton>
-                    </ListItem>
-                  ))}
+                        <Home />
+                      </ListItemIcon>
+                      <ListItemText
+                        sx={{
+                          opacity: open ? 1 : 0,
+                        }}
+                      >
+                        <Typography sx={{ fontWeight: "bold" }}>
+                          {t("home")}
+                        </Typography>
+                      </ListItemText>
+                    </ListItemButton>
+                  </ListItem>
+                  <ListItem
+                    key={"Games"}
+                    disablePadding
+                    sx={{
+                      display: "block",
+                    }}
+                  >
+                    <ListItemButton
+                      href={"/games"}
+                      sx={{
+                        minHeight: 48,
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          mr: open ? 3 : "auto",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <SportsEsports />
+                      </ListItemIcon>
+                      <ListItemText
+                        sx={{
+                          opacity: open ? 1 : 0,
+                        }}
+                      >
+                        <Typography sx={{ fontWeight: "bold" }}>
+                          {t("games")}
+                        </Typography>
+                      </ListItemText>
+                    </ListItemButton>
+                  </ListItem>
+                  <ListItem
+                    key={"Lobby"}
+                    disablePadding
+                    sx={{
+                      display: "block",
+                    }}
+                  >
+                    <ListItemButton
+                      href={"/lobby"}
+                      sx={{
+                        minHeight: 48,
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          mr: open ? 3 : "auto",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Deck />
+                      </ListItemIcon>
+                      <ListItemText
+                        sx={{
+                          opacity: open ? 1 : 0,
+                        }}
+                      >
+                        <Typography sx={{ fontWeight: "bold" }}>
+                          {t("lobby")}
+                        </Typography>
+                      </ListItemText>
+                    </ListItemButton>
+                  </ListItem>
+                  <ListItem
+                    key={"Rank"}
+                    disablePadding
+                    sx={{
+                      display: "block",
+                    }}
+                  >
+                    <ListItemButton
+                      href={"/rank"}
+                      sx={{
+                        minHeight: 48,
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          mr: open ? 3 : "auto",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <MilitaryTech />
+                      </ListItemIcon>
+                      <ListItemText
+                        sx={{
+                          opacity: open ? 1 : 0,
+                        }}
+                      >
+                        <Typography sx={{ fontWeight: "bold" }}>
+                          {t("rank")}
+                        </Typography>
+                      </ListItemText>
+                    </ListItemButton>
+                  </ListItem>
                 </List>
                 <Divider />
                 {loading ? (
@@ -468,10 +651,11 @@ export default function LayoutDefault({
                         >
                           <AssignmentInd />
                         </ListItemIcon>
-                        <ListItemText
-                          primary="Account"
-                          sx={{ opacity: open ? 1 : 0 }}
-                        />
+                        <ListItemText sx={{ opacity: open ? 1 : 0 }}>
+                          <Typography sx={{ fontWeight: "bold" }}>
+                            {t("account")}
+                          </Typography>
+                        </ListItemText>
                       </ListItemButton>
                     </ListItem>
                     {user.role === "admin" ? (
@@ -497,10 +681,11 @@ export default function LayoutDefault({
                           >
                             <ManageAccounts />
                           </ListItemIcon>
-                          <ListItemText
-                            primary="Admin"
-                            sx={{ opacity: open ? 1 : 0 }}
-                          />
+                          <ListItemText sx={{ opacity: open ? 1 : 0 }}>
+                            <Typography sx={{ fontWeight: "bold" }}>
+                              {t("admin")}
+                            </Typography>
+                          </ListItemText>
                         </ListItemButton>
                       </ListItem>
                     ) : null}
@@ -528,10 +713,11 @@ export default function LayoutDefault({
                           <Logout />
                         </ListItemIcon>
 
-                        <ListItemText
-                          primary="Sign out"
-                          sx={{ opacity: open ? 1 : 0 }}
-                        />
+                        <ListItemText sx={{ opacity: open ? 1 : 0 }}>
+                          <Typography sx={{ fontWeight: "bold" }}>
+                            {t("logout")}
+                          </Typography>
+                        </ListItemText>
                       </Button>
                       <Dialog open={LogoutOpen} onClose={handleLogoutClose}>
                         <Box
@@ -545,7 +731,7 @@ export default function LayoutDefault({
                               bgcolor: "primary.main",
                             }}
                           >
-                            LOGOUT
+                            {t("logout")}
                           </DialogTitle>
                           <DialogContent>
                             <DialogContentText
@@ -554,7 +740,7 @@ export default function LayoutDefault({
                               }}
                             >
                               <br />
-                              Are you sure you want to logout?
+                              {t("logout-confirm")}
                             </DialogContentText>
                           </DialogContent>
                           <DialogActions>
@@ -562,7 +748,7 @@ export default function LayoutDefault({
                               sx={{ fontWeight: "bold" }}
                               onClick={handleLogoutClose}
                             >
-                              Cancel
+                              {t("cancel")}
                             </Button>
                             <form action="/api/auth/signout" method="POST">
                               <input
@@ -572,7 +758,7 @@ export default function LayoutDefault({
                               />
 
                               <Button sx={{ fontWeight: "bold" }} type="submit">
-                                Logout
+                                {t("logout")}
                               </Button>
                             </form>
                           </DialogActions>
@@ -603,10 +789,11 @@ export default function LayoutDefault({
                       >
                         <Login />
                       </ListItemIcon>
-                      <ListItemText
-                        primary="Login"
-                        sx={{ opacity: open ? 1 : 0 }}
-                      />
+                      <ListItemText sx={{ opacity: open ? 1 : 0 }}>
+                        <Typography sx={{ fontWeight: "bold" }}>
+                          {t("login")}
+                        </Typography>
+                      </ListItemText>
                     </ListItemButton>
                   </ListItem>
                 )}

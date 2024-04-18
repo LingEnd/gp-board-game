@@ -17,9 +17,9 @@ import {
   useTheme,
 } from "@mui/material";
 import { useRef, useState } from "react";
-import LoginSwitcher from "./LoginSwitcher";
 import { Form } from "./Form";
-import { usePageContext } from "vike-react/usePageContext";
+import LoginSwitcher from "./LoginSwitcher";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   open: boolean;
@@ -28,6 +28,7 @@ type Props = {
 };
 
 export const DialogLogin = (props: Props) => {
+  const { t } = useTranslation();
   const { csrfToken, open, onClose } = props;
   const [showPassword, setShowPassword] = useState(true);
   const [emailOrUsername, setEmailOrUsername] = useState(true);
@@ -65,7 +66,7 @@ export const DialogLogin = (props: Props) => {
             bgcolor: "primary.main",
           }}
         >
-          PBG AUTH
+          {t("auth-title")}
         </DialogTitle>
         <DialogContent
           sx={{
@@ -93,7 +94,7 @@ export const DialogLogin = (props: Props) => {
                   mb: -8,
                 }}
                 id="Email"
-                label="Email Address"
+                label={t("email-address")}
                 type="email"
                 fullWidth
                 name="email"
@@ -108,7 +109,7 @@ export const DialogLogin = (props: Props) => {
                 margin="dense"
                 sx={{}}
                 id="Username"
-                label="Username"
+                label={t("username")}
                 type="text"
                 name="username"
                 fullWidth
@@ -122,7 +123,7 @@ export const DialogLogin = (props: Props) => {
               fullWidth
             >
               <InputLabel htmlFor="outlined-adornment-password">
-                Password
+                {t("password")}
               </InputLabel>
               <OutlinedInput
                 fullWidth
@@ -141,7 +142,7 @@ export const DialogLogin = (props: Props) => {
                     </IconButton>
                   </InputAdornment>
                 }
-                label="Password"
+                label={t("password")}
               />
             </FormControl>
             <Button
@@ -152,11 +153,11 @@ export const DialogLogin = (props: Props) => {
               variant="contained"
               type="submit"
             >
-              Sign in
+              {t("login")}
             </Button>
           </Form>
           <Divider variant="fullWidth" sx={{ m: 1, width: "85%" }}>
-            or
+            {t("or")}
           </Divider>
           <Form action="/api/auth/signin/email" method="POST">
             <input type="hidden" name="csrfToken" value={csrfToken} />
@@ -164,7 +165,7 @@ export const DialogLogin = (props: Props) => {
             <TextField
               margin="dense"
               id="email"
-              label={helpTest === "" ? "Email Address" : helpTest}
+              label={helpTest === "" ? t("email-address") : helpTest}
               type="email"
               fullWidth
               name="email"
@@ -183,11 +184,11 @@ export const DialogLogin = (props: Props) => {
                     setHelpTest("");
                   } else {
                     setEmailInputError(true);
-                    setHelpTest("Please input a valid email");
+                    setHelpTest(t("invalid-email"));
                   }
                 } else {
                   setEmailInputError(true);
-                  setHelpTest("Please input your email");
+                  setHelpTest(t("please-input-email"));
                 }
               }}
               onChange={(e) => {
@@ -204,11 +205,11 @@ export const DialogLogin = (props: Props) => {
                     setHelpTest("");
                   } else {
                     setEmailInputError(true);
-                    setHelpTest("Please input a valid email");
+                    setHelpTest(t("invalid-email"));
                   }
                 } else {
                   setEmailInputError(true);
-                  setHelpTest("Please input your email");
+                  setHelpTest(t("please-input-email"));
                 }
               }}
             />
@@ -222,11 +223,11 @@ export const DialogLogin = (props: Props) => {
               variant="contained"
               type="submit"
             >
-              <Box sx={{ flex: 5 }}>Sign in with Email</Box>
+              <Box sx={{ flex: 5 }}>{t("login-with-email")}</Box>
             </Button>
           </Form>
           <Divider variant="fullWidth" sx={{ m: 1, width: "85%" }}>
-            or
+            {t("or")}
           </Divider>
           <Form action="/api/auth/signin/github" method="POST">
             <input type="hidden" name="csrfToken" value={csrfToken} />
@@ -247,7 +248,7 @@ export const DialogLogin = (props: Props) => {
                   mr: 1,
                 }}
               />
-              <Box sx={{ flex: 5 }}>Sign in with Github</Box>
+              <Box sx={{ flex: 5 }}>{t("login-with-github")}</Box>
             </Button>
           </Form>
           <Form action="/api/auth/signin/google" method="POST">
@@ -268,7 +269,7 @@ export const DialogLogin = (props: Props) => {
                   mr: 1,
                 }}
               />
-              <Box sx={{ flex: 5 }}>Sign in with Google</Box>
+              <Box sx={{ flex: 5 }}>{t("login-with-google")}</Box>
             </Button>
           </Form>
           <Form>
@@ -300,7 +301,7 @@ export const DialogLogin = (props: Props) => {
                   />
                 </svg>
               </SvgIcon>
-              <Box sx={{ flex: 5 }}>Sign in with WeChat</Box>
+              <Box sx={{ flex: 5 }}>{t("login-with-wechat")}</Box>
             </Button>
           </Form>
         </DialogContent>

@@ -1,23 +1,18 @@
-import { AddCircle, Delete } from "@mui/icons-material";
 import {
+  Box,
   Breadcrumbs,
-  Button,
   Dialog,
+  DialogContent,
+  DialogTitle,
   Grid,
   Link,
-  Paper,
   Typography,
-  DialogTitle,
-  DialogContent,
-  Card,
-  Stack,
-  TextField,
-  Box,
 } from "@mui/material";
 import { Announcement } from "@prisma/client";
 import React, { useState } from "react";
 import AnnouncementCard from "../../components/AnnouncementCard";
 import { onQueryAnnouncement } from "./AnnouncementsDisplay.telefunc";
+import { t } from "i18next";
 
 function AnnouncementsDisplay() {
   const [announcements, setAnnouncements] = React.useState<
@@ -69,15 +64,15 @@ function AnnouncementsDisplay() {
         <Link underline="hover" color="inherit" href="/">
           PBG
         </Link>
-        <Typography color="text.primary">Home</Typography>
+        <Typography color="text.primary">{t("home")}</Typography>
       </Breadcrumbs>
 
       <Typography variant="h4" my={2}>
-        Welcome to <strong>PBG</strong>
+        {t("welcome")}
       </Typography>
 
       <Typography variant="h6" my={2}>
-        Announcements
+        {t("announcements")}
       </Typography>
 
       <Grid spacing={1} container width="100%">
@@ -113,7 +108,7 @@ function AnnouncementsDisplay() {
       </Dialog>
 
       <Typography variant="h4" my={2}>
-        Have fun!
+        {t("have-fun")}
       </Typography>
     </Box>
   );

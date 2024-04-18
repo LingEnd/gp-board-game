@@ -2,6 +2,7 @@ import { Server, Origins } from "boardgame.io/server";
 import { FCM, TicTacToe } from "./Game";
 import { PostgresStore } from "bgio-postgres";
 import { Gomoku } from "./gomoku/GameDef";
+import { env } from "process";
 
 const server = Server({
   // Provide the definitions for your game(s).
@@ -9,7 +10,7 @@ const server = Server({
 
   // Provide the database storage class to use.
   db: new PostgresStore(
-    "postgresql://postgres:123456@localhost:5432/pbg?schema=public"
+    "postgresql://ling_end:Chu2637268298@139.196.89.94:5433/db7196a037e2544a26b49754ecb00b96ecpbg?schema=public"
   ),
 
   origins: [

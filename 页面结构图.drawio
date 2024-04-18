@@ -1,0 +1,140 @@
+<mxfile host="65bd71144e">
+    <diagram id="YMBxu_Usx1wKArr5J9oo" name="第 1 页">
+        <mxGraphModel dx="956" dy="537" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="8" value="Orgchart" style="swimlane;startSize=20;horizontal=1;containerType=tree;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+                    <mxGeometry x="67" y="20" width="843" height="510" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startArrow=none;endArrow=none;rounded=0;curved=0;" edge="1" parent="8" source="11" target="12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startArrow=none;endArrow=none;rounded=0;curved=0;" edge="1" parent="8" source="11" target="13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <UserObject label="PBG" treeRoot="1" id="11">
+                    <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="8">
+                        <mxGeometry x="320" y="40" width="120" height="60" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="25" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=0;" edge="1" parent="8" source="12" target="24">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="13" y="210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="首页" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="8">
+                    <mxGeometry x="30" y="140" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="游戏" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="8">
+                    <mxGeometry x="153" y="140" width="87" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startArrow=none;endArrow=none;rounded=0;curved=0;" edge="1" target="17" source="11" parent="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="210" y="150" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="排行榜" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="8">
+                    <mxGeometry x="283" y="140" width="87" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startArrow=none;endArrow=none;rounded=0;curved=0;" edge="1" target="19" source="11" parent="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="210" y="150" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" value="大厅" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="8">
+                    <mxGeometry x="413" y="140" width="87" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startArrow=none;endArrow=none;rounded=0;curved=0;" edge="1" target="21" source="11" parent="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="210" y="150" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" value="用户设置" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="8">
+                    <mxGeometry x="543" y="140" width="87" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="公告浏览" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="8">
+                    <mxGeometry x="30" y="200" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=none;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="8" source="13" target="27">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="143" y="170" as="sourcePoint"/>
+                        <mxPoint x="143" y="230" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="133" y="190"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="快餐大亨" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="8">
+                    <mxGeometry x="153" y="200" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=none;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" target="29" source="13" parent="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="220" y="180.0000000000001" as="sourcePoint"/>
+                        <mxPoint x="143" y="230" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="133" y="210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="井字棋" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="8">
+                    <mxGeometry x="153" y="240" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=none;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" target="31" source="13" parent="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="220" y="180.0000000000001" as="sourcePoint"/>
+                        <mxPoint x="143" y="230" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="133" y="230"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" value="五子棋" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="8">
+                    <mxGeometry x="153" y="280" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;startArrow=none;endArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="8" source="23" target="35">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="653" y="190"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="38" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;startArrow=none;endArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="8" source="23" target="36">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="653" y="200"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="管理员页面" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="8">
+                    <mxGeometry x="673" y="140" width="87" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startArrow=none;endArrow=none;rounded=0;curved=0;" edge="1" target="23" source="11" parent="8">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="210" y="150" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="33" style="edgeStyle=elbowEdgeStyle;html=1;startArrow=none;endArrow=none;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="8" source="19" target="34">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="390" y="187.5000000000001" as="sourcePoint"/>
+                        <mxPoint x="413" y="280" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="393" y="190"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="34" value="游戏房间" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="8">
+                    <mxGeometry x="413" y="200" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="用户管理" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="8">
+                    <mxGeometry x="673" y="200" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="公告管理" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="8">
+                    <mxGeometry x="673" y="240" width="70" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

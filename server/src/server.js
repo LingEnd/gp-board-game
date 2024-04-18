@@ -6,7 +6,7 @@ var server = Server({
     // Provide the definitions for your game(s).
     games: [FCM, TicTacToe, Gomoku],
     // Provide the database storage class to use.
-    db: new PostgresStore("postgresql://postgres:123456@localhost:5432/pbg?schema=public"),
+    db: new PostgresStore("postgresql://ling_end:Chu2637268298@139.196.89.94:5433/db7196a037e2544a26b49754ecb00b96ecpbg?schema=public"),
     origins: [
         // Allow your game site to connect.
         "https://localhost:8000",

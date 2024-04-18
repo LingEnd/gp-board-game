@@ -12,6 +12,7 @@ import { User } from "@prisma/client";
 import { useState } from "react";
 import { reload } from "vike/client/router";
 import { onChangeUserName } from "./ChangeUserName.telefunc";
+import { t } from "i18next";
 
 type Props = {
   user: User;
@@ -70,7 +71,11 @@ function ChangeUserName({ user }: Props) {
         variant="h5"
         color="primary.main"
       >
-        {user.role?.toUpperCase()}
+        {user.role
+          ? user.role === "admin"
+            ? t("admin")
+            : t("player")
+          : t("guest")}
       </Typography>
       <OutlinedInput
         defaultValue={user.name ? user.name : "Unset Name"}
@@ -92,7 +97,7 @@ function ChangeUserName({ user }: Props) {
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
         <Alert severity="success" sx={{ width: "100%" }}>
-          Name changed successfully!
+          {t("name-changed-successfully")}
         </Alert>
       </Snackbar>
       <Snackbar

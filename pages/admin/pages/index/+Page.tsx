@@ -1,7 +1,7 @@
 export default Page;
 
-import { Breadcrumbs, Button, Typography, Link, Stack } from "@mui/material";
-import React from "react";
+import { Breadcrumbs, Button, Link, Stack, Typography } from "@mui/material";
+import { t } from "i18next";
 
 function Page() {
   return (
@@ -10,14 +10,14 @@ function Page() {
         <Link underline="hover" color="inherit" href="/">
           PBG
         </Link>
-        <Typography color="text.primary">admin</Typography>
+        <Typography color="text.primary">{t("admin")}</Typography>
       </Breadcrumbs>
       <Stack spacing={2} width="max-content" m="auto" mt={20}>
         <Button variant="contained" color="primary" href="admin/users">
-          <Typography variant="h6">Manage User</Typography>
+          <Typography variant="h6">{t("manage-users")}</Typography>
         </Button>
         <Button variant="contained" color="primary" href="admin/announcements">
-          <Typography variant="h6">Manage Announcements</Typography>
+          <Typography variant="h6">{t("manage-announcements")}</Typography>
         </Button>
       </Stack>
     </>

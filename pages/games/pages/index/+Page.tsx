@@ -11,6 +11,7 @@ import {
   Link,
   Typography,
 } from "@mui/material";
+import { t } from "i18next";
 
 export default Page;
 
@@ -45,10 +46,10 @@ function Page() {
             <CardMedia sx={{ height: 400 }} image="/assets/fcm.jpg" />
             <CardContent sx={{ flex: 1 }}>
               <Typography gutterBottom variant="h5" component="div">
-                Food Chain Magnate{" "}
+                {t("food-chain-magnate")}{" "}
                 <Chip
                   icon={<SmartToy />}
-                  label=" AI comming soon !!"
+                  label={t("no-ai")}
                   color="warning"
                   sx={{
                     ml: 1,
@@ -57,12 +58,7 @@ function Page() {
                 />
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Food Chain Magnate is a heavy strategy game about building a
-                fast food chain. The focus is on building your company using a
-                card driven (human) resource management system. Players compete
-                on a variable city map through purchasing, marketing and sales,
-                and on a job market for key staff members. The game can be
-                played by 2-5 serious gamers in 2-4 hours.
+                {t("food-chain-magnate-desc")}
               </Typography>
             </CardContent>
             <CardActions
@@ -72,14 +68,14 @@ function Page() {
               }}
             >
               <Button variant="contained" size="small" href="/games/FCM">
-                play alone
+                {t("play-alone")}
               </Button>
               <Button
                 variant="contained"
                 size="small"
                 href="https://boardgamegeek.com/boardgame/175914/food-chain-magnate"
               >
-                Learn More
+                {t("learn-more")}
               </Button>
             </CardActions>
           </Card>
@@ -98,10 +94,10 @@ function Page() {
             <CardMedia sx={{ height: 400 }} image="/assets/ttt.jpg" />
             <CardContent sx={{ flex: 1 }}>
               <Typography gutterBottom variant="h5" component="div">
-                Tic Tac Toe{" "}
+                {t("tic-tac-toe")}{" "}
                 <Chip
                   icon={<SmartToy />}
-                  label="with AI !!"
+                  label={t("with-ai")}
                   color="secondary"
                   sx={{
                     ml: 1,
@@ -110,10 +106,7 @@ function Page() {
                 />
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Tic Tac Toe is a game for two players, X and O, who take turns
-                marking the spaces in a 3×3 grid. The player who succeeds in
-                placing three of their marks in a diagonal, horizontal, or
-                vertical row is the winner.
+                {t("tic-tac-toe-desc")}
               </Typography>
             </CardContent>
             <CardActions
@@ -123,14 +116,14 @@ function Page() {
               }}
             >
               <Button variant="contained" size="small" href="/games/TTT">
-                play alone
+                {t("play-alone")}
               </Button>
               <Button
                 variant="contained"
                 size="small"
                 href="https://en.wikipedia.org/wiki/Tic-tac-toe"
               >
-                Learn More
+                {t("learn-more")}
               </Button>
             </CardActions>
           </Card>
@@ -149,10 +142,10 @@ function Page() {
             <CardMedia sx={{ height: 400 }} image="/assets/gomoku.jpg" />
             <CardContent sx={{ flex: 1 }}>
               <Typography gutterBottom variant="h5" component="div">
-                Gomoku
+                {t("gomoku")}{" "}
                 <Chip
                   icon={<SmartToy />}
-                  label="with AI !!"
+                  label={t("with-ai")}
                   color="secondary"
                   sx={{
                     ml: 1,
@@ -162,13 +155,7 @@ function Page() {
               </Typography>
 
               <Typography variant="body2" color="text.secondary">
-                Gomoku is an abstract strategy board game. Also called Gobang or
-                Five in a Row, it is traditionally played with Go pieces (black
-                and white stones) on a go board with 19x19 intersections;
-                however, because once placed, pieces are not moved or removed
-                from the board, gomoku may also be played as a paper and pencil
-                game. This game is known in several countries under different
-                names.
+                {t("gomoku-desc")}
               </Typography>
             </CardContent>
             <CardActions
@@ -178,14 +165,14 @@ function Page() {
               }}
             >
               <Button variant="contained" size="small" href="/games/gomoku">
-                play alone
+                {t("play-alone")}
               </Button>
               <Button
                 variant="contained"
                 size="small"
                 href="https://en.wikipedia.org/wiki/Gomoku"
               >
-                Learn More
+                {t("learn-more")}
               </Button>
             </CardActions>
           </Card>
@@ -210,10 +197,10 @@ function Page() {
             />
             <CardContent sx={{ flex: 1 }}>
               <Typography gutterBottom variant="h5" component="div">
-                Comming Soon
+                {t("coming-soon")}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                We are working hard to bring you more games. Stay tuned!
+                {t("coming-soon-desc")}
               </Typography>
             </CardContent>
           </Card>
