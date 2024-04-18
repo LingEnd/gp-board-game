@@ -1,3 +1,12 @@
 node_modules
 # Keep environment variables out of version control
 .env
+页面结构图.drawio
+account e-r.drawio
+announcement e-r.drawio
+e.drawio
+game e-r.drawio
+main e-r.drawio
+session e-r.drawio
+token e-r.drawio
+user e-r.drawio
